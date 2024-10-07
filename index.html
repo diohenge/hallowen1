@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="halloween">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Spooktacular - Sua Loja de Halloween</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-base-300">
+        <div class="navbar container mx-auto">
+            <div class="flex-1">
+                <a class="btn btn-ghost normal-case text-xl font-creepster text-primary">Halloween Spooktacular</a>
+            </div>
+            <div class="flex-none">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a class="active">Home</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a>Sobre</a></li>
+                    <li><a>Contato</a></li>
+                </ul>
+                <button class="btn btn-ghost btn-circle" onclick="openCartModal()">
+                    <div class="indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="badge badge-sm indicator-item" id="cart-count">0</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="hero min-h-screen" style="background-image: url('https://images.unsplash.com/photo-1508361001413-7a9dca21d08a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');">
+            <div class="hero-overlay bg-opacity-60"></div>
+            <div class="hero-content text-center text-neutral-content">
+                <div class="max-w-md">
+                    <h1 class="mb-5 text-5xl font-bold font-creepster text-primary">Desperte o Terror na sua Festa de Halloween!</h1>
+                    <p class="mb-5">Encontre tudo o que você precisa para uma celebração assustadoramente divertida.</p>
+                    <a href="produtos.html" class="btn btn-primary">Compre Agora</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 bg-base-200">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8 font-creepster text-primary">Produtos em Destaque</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure><img src="https://images.unsplash.com/photo-1633886036602-d05a3e63b815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=225&q=80" alt="Fantasia de Bruxa" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title font-creepster text-primary">Fantasia de Bruxa</h2>
+                            <p>Transforme-se na bruxa mais temida da festa!</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="addToCart('Fantasia de Bruxa', 89.99)">Adicione um feitiço ao carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure><img src="https://images.unsplash.com/photo-1540427969750-1424f2fa0af8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=225&q=80" alt="Abóbora Iluminada" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title font-creepster text-primary">Abóbora Iluminada</h2>
+                            <p>Ilumine sua casa com um toque assustador!</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="addToCart('Abóbora Iluminada', 39.99)">Coloque o terror no carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure><img src="https://images.unsplash.com/photo-1509558567730-6cd2de090f11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=225&q=80" alt="Kit de Maquiagem Zumbi" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title font-creepster text-primary">Kit de Maquiagem Zumbi</h2>
+                            <p>Crie looks horripilantes com este kit profissional!</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="addToCart('Kit de Maquiagem Zumbi', 59.99)">Adicione o horror ao carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure><img src="https://images.unsplash.com/photo-1572860177022-8fad5d778cf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=225&q=80" alt="Doces Temáticos" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title font-creepster text-primary">Doces Temáticos</h2>
+                            <p>Deliciosos doces com formatos de Halloween!</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="addToCart('Doces Temáticos', 19.99)">Adoce seu carrinho assustador</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content rounded">
+        <div>
+            <p>Copyright © 2024 - Todos os direitos reservados por Halloween Spooktacular</p>
+        </div>
+    </footer>
+
+    <!-- Modal do Carrinho -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg font-creepster text-primary">Seu Carrinho Assustador</h3>
+            <div id="cart-items" class="py-4">
+                <!-- Os itens do carrinho serão inseridos aqui -->
+            </div>
+            <p class="font-bold mt-4">Total: R$ <span id="cart-total">0.00</span></p>
+            <div class="modal-action">
+                <button class="btn btn-primary">Finalizar Compra</button>
+                <button class="btn" onclick="closeCartModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal da Newsletter -->
+    <div id="newsletter-modal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg font-creepster text-primary">Receba Ofertas Arrepiantes!</h3>
+            <p class="py-4">Assine nossa newsletter e ganhe 10% de desconto na primeira compra.</p>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Seu e-mail</span>
+                </label>
+                <input type="email" placeholder="exemplo@email.com" class="input input-bordered" />
+            </div>
+            <div class="modal-action">
+                <button class="btn btn-primary">Assinar e Economizar</button>
+                <button class="btn" onclick="closeNewsletterModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        let cart = {};
+        let cartTotal = 0;
+
+        function saveCart() {
+            localStorage.setItem('halloweenCart', JSON.stringify(cart));
+            localStorage.setItem('halloweenCartTotal', cartTotal);
+        }
+
+        function loadCart() {
+            const savedCart = localStorage.getItem('halloweenCart');
+            const savedTotal = localStorage.getItem('halloweenCartTotal');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                cartTotal = parseFloat(savedTotal);
+                updateCartCount();
+            }
+        }
+
+        function addToCart(productName, price) {
+            if (cart[productName]) {
+                cart[productName].quantity++;
+            } else {
+                cart[productName] = { price: price, quantity: 1 };
+            }
+            cartTotal += price;
+            updateCartCount();
+            saveCart();
+            showToast(`${productName} adicionado ao carrinho!`);
+        }
+
+        function updateCartCount() {
+            let totalItems = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        function openCartModal() {
+            const cartItemsElement = document.getElementById('cart-items');
+            cartItemsElement.innerHTML = '';
+            for (let [productName, item] of Object.entries(cart)) {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex justify-between items-center mb-2';
+                itemElement.innerHTML = `
+                    <span>${productName} - ${item.quantity}x R$ ${item.price.toFixed(2)}</span>
+                    <div>
+                        <button class="btn btn-xs btn-circle btn-ghost" onclick="changeQuantity('${productName}', -1)">-</button>
+                        <span class="mx-2">${item.quantity}</span>
+                        <button class="btn btn-xs btn-circle btn-ghost" onclick="changeQuantity('${productName}', 1)">+</button>
+                        <button class="btn btn-xs btn-circle btn-error ml-2" onclick="removeItem('${productName}')">×</button>
+                    </div>
+                `;
+                cartItemsElement.appendChild(itemElement);
+            }
+            document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
+            document.getElementById('cart-modal').classList.add('modal-open');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').classList.remove('modal-open');
+        }
+
+        function changeQuantity(productName, change) {
+            cart[productName].quantity += change;
+            cartTotal += change * cart[productName].price;
+            if (cart[productName].quantity <= 0) {
+                removeItem(productName);
+            } else {
+                updateCartCount();
+                saveCart();
+                openCartModal();
+            }
+        }
+
+        function removeItem(productName) {
+            cartTotal -= cart[productName].price * cart[productName].quantity;
+            delete cart[productName];
+            updateCartCount();
+            saveCart();
+            openCartModal();
+            showToast(`${productName} removido do carrinho!`);
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast toast-top toast-end';
+            toast.innerHTML = `
+                <div class="alert alert-success">
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function createBat() {
+            const bat = document.createElement('div');
+            bat.className = 'fixed w-12 h-8 bg-cover';
+            bat.style.backgroundImage = "url('https://www.svgrepo.com/show/530364/bat.svg')";
+            bat.style.top = `${Math.random() * 80 + 10}%`;
+            bat.style.left = '-50px';
+            bat.style.animation = `fly ${Math.random() * 5 + 5}s linear infinite`;
+            document.body.appendChild(bat);
+        }
+
+        function closeNewsletterModal() {
+            document.getElementById('newsletter-modal').classList.remove('modal-open');
+        }
+
+        // Initialize the page
+        loadCart();
+        for (let i = 0; i < 5; i++) {
+            createBat();
+        }
+
+        setTimeout(() => {
+            document.getElementById('newsletter-modal').classList.add('modal-open');
+        }, 5000);
+    </script> -->
+
+    <script src="script.js"></script>
+</body>
+</html>

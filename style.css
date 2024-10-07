@@ -1,0 +1,117 @@
+/* Variáveis temáticas */
+:root {
+    --orange-halloween: #ff6b0c;
+    --purple-halloween: #6b0c9e;
+    --green-halloween: #4caf50;
+    --black-halloween: #1a1a1a;
+}
+
+/* Animações */
+@keyframes floatingGhost {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes spookyShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 10px var(--orange-halloween); }
+    50% { text-shadow: 0 0 20px var(--purple-halloween); }
+}
+
+/* Estilos gerais */
+body {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" x="50" text-anchor="middle" fill="rgba(255,107,12,0.03)" font-size="80">🎃</text></svg>');
+    background-color: var(--black-halloween);
+}
+
+/* Header e Navegação */
+.navbar {
+    border-bottom: 2px solid var(--orange-halloween);
+    box-shadow: 0 2px 15px rgba(255, 107, 12, 0.2);
+}
+
+.navbar .btn-ghost:hover {
+    animation: spookyShake 0.5s ease-in-out;
+}
+
+/* Cards de Produtos */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    overflow: hidden;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--orange-halloween);
+    box-shadow: 0 0 20px rgba(255, 107, 12, 0.3);
+}
+
+.card figure img {
+    transition: transform 0.5s ease;
+}
+
+.card:hover figure img {
+    transform: scale(1.1);
+}
+
+.card-title {
+    animation: glowPulse 2s infinite;
+}
+
+/* Botões */
+.btn-primary {
+    background: linear-gradient(45deg, var(--orange-halloween), var(--purple-halloween));
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+/* Modal do Carrinho */
+.modal-box {
+    border: 3px solid var(--orange-halloween);
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+}
+
+/* Toast Notifications */
+.toast .alert {
+    border: 2px solid var(--orange-halloween);
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+/* Efeitos de Decoração */
+.spooky-text {
+    font-family: 'Creepster', cursive;
+    text-shadow: 2px 2px 4px var(--orange-halloween);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card:hover {
+        transform: translateY(-5px);
+    }
+}
